@@ -1,0 +1,19 @@
+<div class="card" *ngIf="video">
+  <div class="top container-fluid" *ngIf="!beenClicked">
+    <img
+      src="{{ video.image.medium_url }}"
+      (error)="setPlaceholder()"
+      alt=""
+      class="card-img-top"
+    />
+    <button class="play btn">
+      <i class="material-icons" (click)="playClick()">play_circle_filled</i>
+    </button>
+  </div>
+
+  <video src="{{ this.videoUrl }}" controls *ngIf="beenClicked" autoplay></video>
+
+  <div class="card-body">
+    <h5 class="card-title">{{ video.name }}</h5>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div>
+  <p-toolbar></p-toolbar>
+</div>
+<div id="content" class="container-fluid">
+  <div class="row">
+    <div #sidebar class="col-3 sticky-top">
+      <app-show-sidebar></app-show-sidebar>
+    </div>
+    <div class="col-9 sticky-top">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

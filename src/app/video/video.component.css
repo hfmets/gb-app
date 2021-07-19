@@ -1,0 +1,57 @@
+.card {
+  min-height: 100%;
+}
+
+.top {
+  position: relative;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.container-fluid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.btn i {
+  font-size: 4vw;
+  color: white;
+}
+
+.container-fluid .btn {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.container-fluid:hover .btn {
+  display: block;
+}
+
+/*
+.play-outer:hover > .play {
+  display: block !important;
+}
+
+.play {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  display: none;
+  font-size: 4vw;
+  color: white;
+  cursor: pointer;
+}
+
+.card-image-top {
+  aspect-ratio: 16 / 9;
+
+}
+*/
