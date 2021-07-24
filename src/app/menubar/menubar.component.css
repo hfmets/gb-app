@@ -1,0 +1,10 @@
+.layout-topbar {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  top: 0;
+}
+
+h3 {
+  margin-right: 20px;
+}

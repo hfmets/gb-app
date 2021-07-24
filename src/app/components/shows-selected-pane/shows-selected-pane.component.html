@@ -1,0 +1,23 @@
+<div class="spinner-holder">
+  <app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
+</div>
+<p-dataView [value]="videos" layout="grid" [paginator]="true" [rows]="12"
+[lazy]="true" [rows]="12" (onLazyLoad)="lazyLoadData($event)" [totalRecords]="totalRecords">
+  <ng-template let-video pTemplate="gridItem">
+    <div class="p-col-12 p-md-3 card-holder">
+      <app-video [video]="video"></app-video>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="empty"> </ng-template>
+</p-dataView>
+
+<!-- <div class="overflow-auto h-100">
+  <p-progressSpinner *ngIf="this.spinnerService.loading | async"></p-progressSpinner>
+  <div class="row" *ngIf="videos">
+    <app-video
+      *ngFor="let video of videos | async"
+      [video]="video"
+      class="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-2"
+    ></app-video>
+  </div>
+</div> -->

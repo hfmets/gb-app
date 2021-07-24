@@ -12,4 +12,7 @@ export interface Video {
 export interface Show {
   id: Number;
   title: string;
+  image: {
+    small_url: string;
+  }
 }

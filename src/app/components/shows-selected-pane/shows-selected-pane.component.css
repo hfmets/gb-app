@@ -1,0 +1,26 @@
+p-progressSpinner {
+  top: 50%;
+  left: 50%;
+  position: relative;
+}
+
+.card-holder {
+  padding: 2rem;
+  height: 100%;
+}
+
+.spinner-holder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+app-progress-spinner {
+  position: relative;
+  top: -50%;
+  left: -50%;
+}
+
+app-video {
+  height: 100%;
+}

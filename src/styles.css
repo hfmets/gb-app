@@ -19,3 +19,7 @@
   scrollbar-color: #7f7f7f white; /* thumb and track color */
   scrollbar-width: thin;
 }
+
+body {
+  margin: 0;
+}

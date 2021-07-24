@@ -1,0 +1,36 @@
+<p-panel header="How to login">
+  <ul *ngIf="!isAuthenticated">
+    <li>
+      Head over to
+      <a href="{{ externalAuthUrl }}" target="_blank">{{ externalAuthUrl }}</a>
+      to get a special code.
+    </li>
+    <li>
+      Come back here and input your code in the form below to validate your GB
+      account.
+    </li>
+  </ul>
+  <ul *ngIf="isAuthenticated">
+    <li>
+      You're authenticated!
+    </li>
+  </ul>
+</p-panel>
+<div class="form" *ngIf="!isAuthenticated">
+  <div>
+    <h5>Authorization Code</h5>
+    <div class="form-input">
+      <span class="p-float-label">
+        <input
+          id="float-label"
+          type="text"
+          pInputText
+          [(ngModel)]="inputCode"
+        />
+        <label for="float-input">Code</label>
+      </span>
+
+      <p-button label="Submit" (click)="authorize()"></p-button>
+    </div>
+  </div>
+</div>
