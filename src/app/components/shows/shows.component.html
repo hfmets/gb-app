@@ -6,6 +6,9 @@
     [value]="shows"
     [paginator]="true"
     [rows]="12"
+    [lazy]="true"
+    (onLazyLoad)="lazyLoadDataShows($event)"
+    [totalRecords]="totalRecords"
     layout="grid"
     emptyMessage="Loading..."
   >

@@ -16,3 +16,8 @@ export interface Show {
     small_url: string;
   }
 }
+
+export interface UserAuth {
+  status: string;
+  regToken: string;
+}

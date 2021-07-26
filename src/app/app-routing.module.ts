@@ -8,7 +8,8 @@ import { ShowsComponent } from './components/shows/shows.component';
 const routes: Routes = [
   { path: 'shows', component: ShowsComponent},
   { path: 'shows/:id', component: ShowsSelectedPaneComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/shows', pathMatch: 'full' }
 ];
 
 @NgModule({

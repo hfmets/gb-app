@@ -2,7 +2,7 @@
   <app-progress-spinner *ngIf="isLoading"></app-progress-spinner>
 </div>
 <p-dataView [value]="videos" layout="grid" [paginator]="true" [rows]="12"
-[lazy]="true" [rows]="12" (onLazyLoad)="lazyLoadData($event)" [totalRecords]="totalRecords">
+[lazy]="true" (onLazyLoad)="lazyLoadDataVideos($event)" [totalRecords]="totalRecords">
   <ng-template let-video pTemplate="gridItem">
     <div class="p-col-12 p-md-3 card-holder">
       <app-video [video]="video"></app-video>

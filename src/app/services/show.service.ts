@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Video, Show } from '../models/video.model';
+import { Video, Show, UserAuth } from '../models/video.model';
 import { Pageable } from '../models/pageable.model';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -20,7 +20,7 @@ export class ShowService {
     return this.http
       .get(
         this.corsPrefix +
-        this.showCategoryUrl +
+          this.showCategoryUrl +
           this.cookie.get('userKey') +
           '&format=json&sort=id:asc'
       )
@@ -31,7 +31,7 @@ export class ShowService {
     return this.http
       .get(
         this.corsPrefix +
-        this.videosUrl +
+          this.videosUrl +
           this.cookie.get('userKey') +
           '&format=json&sort=id:desc&filter=video_show:' +
           id.toString()
@@ -39,16 +39,39 @@ export class ShowService {
       .pipe(map((res: any) => res.results));
   }
 
+  getTotalNumberOfShows(): Observable<number> {
+    return this.http.get(
+      this.corsPrefix +
+      this.showCategoryUrl +
+      this.cookie.get('userKey') +
+      '&format=json'
+    ).pipe(map((res: any) => res.number_of_total_results));
+  }
+
   getTotalNumberOfVideos(id: number): Observable<number> {
     return this.http
       .get(
         this.corsPrefix +
-        this.videosUrl +
+          this.videosUrl +
           this.cookie.get('userKey') +
           '&format=json&filter=video_show:' +
           id.toString()
       )
       .pipe(map((res: any) => res.number_of_total_results));
+  }
+
+  getShowsPaginated(pageableData: Pageable): Observable<Array<Show>> {
+    return this.http
+      .get(
+        this.corsPrefix +
+          this.showCategoryUrl +
+          this.cookie.get('userKey') +
+          '&format=json&sort=id:asc&limit=' +
+          pageableData.limit?.toString() +
+          '&offset=' +
+          pageableData.offset?.toString()
+      )
+      .pipe(map((res: any) => res.results));
   }
 
   getVideosPaginated(
@@ -58,7 +81,7 @@ export class ShowService {
     return this.http
       .get(
         this.corsPrefix +
-        this.videosUrl +
+          this.videosUrl +
           this.cookie.get('userKey') +
           '&format=json&sort=id:desc&filter=video_show:' +
           id.toString() +
@@ -70,12 +93,9 @@ export class ShowService {
       .pipe(map((res: any) => res.results));
   }
 
-  getUserRegToken(userCode: String): Observable<any> {
+  getUserRegToken(userCode: String): Observable<UserAuth> {
     return this.http
-      .get(
-        this.corsPrefix +
-        this.authUrl + userCode + '&format=json'
-      )
+      .get(this.corsPrefix + this.authUrl + userCode + '&format=json')
       .pipe(map((res: any) => res));
   }
 

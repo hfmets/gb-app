@@ -2,7 +2,7 @@
   <ul *ngIf="!isAuthenticated">
     <li>
       Head over to
-      <a href="{{ externalAuthUrl }}" target="_blank">{{ externalAuthUrl }}</a>
+      <a id="gbLink" href="{{ externalAuthUrl }}" target="_blank">{{ externalAuthUrl }}</a>
       to get a special code.
     </li>
     <li>
@@ -19,15 +19,18 @@
 <div class="form" *ngIf="!isAuthenticated">
   <div>
     <h5>Authorization Code</h5>
-    <div class="form-input">
+    <div class="form-input p-field">
       <span class="p-float-label">
         <input
-          id="float-label"
+          id="float-input"
           type="text"
           pInputText
           [(ngModel)]="inputCode"
+          [class.ng-invalid.ng-dirty]="loginFailed"
+          aria-describedby="float-input-help"
         />
         <label for="float-input">Code</label>
+        <small id="float-input-help" class="p-error" *ngIf="loginFailed">Login failed.</small>
       </span>
 
       <p-button label="Submit" (click)="authorize()"></p-button>

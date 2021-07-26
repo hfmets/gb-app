@@ -16,7 +16,7 @@ export class ShowsSelectedPaneComponent implements OnInit {
   isLoading: boolean = true;
   totalRecords!: number;
 
-  lazyLoadData(event: LazyLoadEvent) {
+  lazyLoadDataVideos(event: LazyLoadEvent) {
     this.isLoading = true;
 
     const pageableData: Pageable = {
