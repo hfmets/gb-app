@@ -6,3 +6,5 @@ The site can be visited here:
 http://gb-explore.surge.sh
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.1.
+
+<img src="/images/gbapp_screenshot_1.png">
